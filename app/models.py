@@ -1,6 +1,6 @@
 from app import db, login
-from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 from datetime import datetime
 
 class User(UserMixin, db.Model):
@@ -22,14 +22,14 @@ class Transaction(db.Model):
     amount = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(140))
     date = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    income = db.Column(db.Intiger, db.ForeignKey('user.id'))
-    user_id = db.Column(db.Integer, db.Foreignkey('user_id'))
+    type = db.Column(db.String(10), nullable=False)  # 'income' или 'expense'
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True)
-    transaction = db.relationship('Transaction', backref='category', lazy='dynamic')
+    transactions = db.relationship('Transaction', backref='category', lazy='dynamic')
 
 class Budget(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -42,4 +42,3 @@ class Budget(db.Model):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
-
