@@ -45,3 +45,5 @@ temp/
 
 poetry.lock
 Pipfile.lock
+
+migrations/
