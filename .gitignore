@@ -1,0 +1,57 @@
+# Виртуальное окружение
+venv/
+env/
+.venv/
+.env/
+ENV/
+*.venv
+*.virtualenv
+
+# Кэш Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+
+# Файлы SQLite
+*.db
+*.sqlite3
+*.sqlite
+
+# Логи
+*.log
+logs/
+
+# Временные файлы
+*.tmp
+*.bak
+*.swp
+*~
+
+# Файлы среды разработки
+.vscode/
+
+# Файлы операционной системы
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Файлы конфигурации с секретами
+.env
+*.env
+.secrets
+
+
+# Пользовательские файлы и директории
+user_uploads/
+temp/
+.local/
+
+# Файлы зависимостей
+poetry.lock
+Pipfile.lock
+
+# pyenv
+.python-version
+
