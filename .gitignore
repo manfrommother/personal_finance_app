@@ -41,7 +41,7 @@ desktop.ini
 .env
 *.env
 .secrets
-app/core/config.py
+.core/
 
 
 # Пользовательские файлы и директории
