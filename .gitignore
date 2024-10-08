@@ -41,7 +41,6 @@ desktop.ini
 .env
 *.env
 .secrets
-.core/
 
 
 # Пользовательские файлы и директории
