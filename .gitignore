@@ -14,7 +14,7 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 
-# Файлы SQLite
+
 *.db
 *.sqlite3
 *.sqlite
@@ -41,6 +41,7 @@ desktop.ini
 .env
 *.env
 .secrets
+app/core/config.py
 
 
 # Пользовательские файлы и директории
