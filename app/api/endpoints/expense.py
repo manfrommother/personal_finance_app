@@ -45,7 +45,7 @@ def update_expense(
     db: Session=Depends(get_db),
     current_user: User=Depends(get_current_user)
 ):
-    delete_expense = expense_crud.delete_expense(db, expense_id=expense_id, user_id=current_user.id)
+    delete_expense = expense_crud.delete_expense(db, expense_id=expense_id, expense=expense, user_id=current_user.id)
     if delete_expense is None:
         raise HTTPException(status_code=404, detail='Расход не найден')
     return delete_expense
