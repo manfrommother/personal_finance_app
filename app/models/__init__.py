@@ -59,9 +59,24 @@ class Category(Base):
     incomes = relationship('Income', back_populates='categories')
     expenses = relationship('Expense', back_populates='category')
 
+class FinancialGoal(Base):
+    __tablename__ = 'financial_goals'
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    name = Column(String, index=True)
+    target_amount = Column(Float)
+    current_amount = Column(Float, default=0)
+    deadline = Column(DateTime)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    user = relationship('User', back_populates='financial_goals')
+
 
 User.incomes = relationship('Income', back_populates='user')
 User.expenses = relationship('Expense', back_populates='user')
 User.categories = relationship('Category', back_populates='user')
+User.financial_goals = relationship('FinancialGoal', back_populates='user')
 
 
